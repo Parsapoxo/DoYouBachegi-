@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Do You Bachegi? — tokens
+   ========================================================================== */
+
+:root {
+  --bg: #12141c;
+  --surface: #1b1e2a;
+  --surface-raised: #242939;
+  --line: #333b52;
+  --gold: #e8b64c;
+  --gold-dim: #7a622c;
+  --coral: #ff6b57;
+  --text: #f3efe4;
+  --text-muted: #93a0bd;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   Version badge
+   ========================================================================== */
+
+.version-badge {
+  position: fixed;
+  bottom: 14px;
+  right: 16px;
+  z-index: 50;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   Auth screen
+   ========================================================================== */
+
+#auth-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 80px;
+  gap: 36px;
+}
+
+.auth-hero {
+  text-align: center;
+  max-width: 480px;
+}
+
+.site-title {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.05;
+}
+
+.site-tagline {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 32px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-form-title {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.auth-form label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.auth-form input {
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+}
+
+.auth-form input:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.form-error {
+  min-height: 1.2em;
+  color: var(--coral);
+  font-size: 0.85rem;
+  margin: 6px 0 0;
+}
+
+.btn-primary {
+  margin-top: 16px;
+  background: var(--gold);
+  color: #1a1305;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #f2c568;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.switch-form {
+  margin: 14px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.switch-form a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Avatar grid (7 columns x 5 rows)
+   ========================================================================== */
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 4px;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.avatar-option {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.75;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+
+.avatar-option:hover {
+  opacity: 1;
+}
+
+.avatar-option.selected {
+  border-color: var(--gold);
+  opacity: 1;
+}
+
+.current-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+}
+
+/* ==========================================================================
+   App screen
+   ========================================================================== */
+
+#app-screen {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 100px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+}
+
+.app-title {
+  font-size: 1.8rem;
+  color: var(--gold);
+}
+
+.app-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.current-username {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.studio-section {
+  margin-bottom: 44px;
+}
+
+.studio-title {
+  font-size: 1.3rem;
+  color: var(--text);
+  padding-left: 14px;
+  border-left: 4px solid var(--gold);
+  margin-bottom: 20px;
+}
+
+.franchise-block {
+  margin-bottom: 26px;
+}
+
+.franchise-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  text-transform: none;
+  margin-bottom: 12px;
+}
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+}
+
+.poster-card {
+  cursor: pointer;
+  user-select: none;
+}
+
+.poster-frame {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  transition: border-color 0.15s, transform 0.1s;
+}
+
+.poster-card:hover .poster-frame {
+  transform: translateY(-2px);
+  border-color: var(--text-muted);
+}
+
+.poster-card.watched .poster-frame {
+  border-color: var(--gold);
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.poster-check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #1a1305;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.poster-card.watched .poster-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.poster-title {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.poster-year {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.watchers {
+  margin-top: 3px;
+  font-size: 0.72rem;
+  color: var(--gold-dim);
+  min-height: 1.1em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .avatar-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .poster-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+}
